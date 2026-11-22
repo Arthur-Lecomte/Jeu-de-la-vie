@@ -11,8 +11,10 @@ publiable. Il arrive via le template `demo-template` ; adapte la section
   son portfolio [arthurlecomte.fr](https://arthurlecomte.fr), sous
   `/demos/<slug>/`. Ce repo reste la source de vérité du code ; le
   portfolio n'en héberge qu'une copie du build.
-- TODO(arthur) : décrire ici en 2-3 lignes ce que fait le projet et où il
-  en est.
+- Jeu de la vie de Conway sur grille infinie : canvas avec zoom et
+  déplacement libres (souris et tactile), dessin de cellules, bibliothèque
+  de patterns classiques, contrôles complets et stats en direct. Vanilla
+  JS + Vite, aucune dépendance d'exécution. Première version fonctionnelle.
 
 ## Règles non négociables
 
