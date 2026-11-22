@@ -259,6 +259,17 @@ function cancelPattern() {
   for (const btn of patternList.querySelectorAll('button')) {
     btn.setAttribute('aria-pressed', 'false');
   }
+  showHint(null);
+}
+
+const patternHint = document.getElementById('pattern-hint');
+const DEFAULT_HINT = patternHint.textContent.trim();
+
+// Show the description of the hovered/focused pattern; fall back to the
+// selected one, then to the generic instruction.
+function showHint(pattern) {
+  const shown = pattern || pendingPattern;
+  patternHint.textContent = shown ? `${shown.name} — ${shown.hint}` : DEFAULT_HINT;
 }
 
 for (const pattern of PATTERNS) {
@@ -266,7 +277,6 @@ for (const pattern of PATTERNS) {
   const btn = document.createElement('button');
   btn.type = 'button';
   btn.textContent = pattern.name;
-  btn.title = pattern.hint;
   btn.setAttribute('aria-pressed', 'false');
   btn.addEventListener('click', () => {
     const wasSelected = pendingPattern === pattern;
@@ -276,7 +286,12 @@ for (const pattern of PATTERNS) {
       pendingPattern = pattern;
       btn.setAttribute('aria-pressed', 'true');
     }
+    showHint(null);
   });
+  btn.addEventListener('mouseenter', () => showHint(pattern));
+  btn.addEventListener('mouseleave', () => showHint(null));
+  btn.addEventListener('focus', () => showHint(pattern));
+  btn.addEventListener('blur', () => showHint(null));
   li.append(btn);
   patternList.append(li);
 }
