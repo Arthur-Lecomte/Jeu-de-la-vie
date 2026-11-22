@@ -34,6 +34,9 @@ npm run preview   # sert le build pour vérification
 - Le « remplissage aléatoire » sème la zone visible, plafonnée à
   120 × 120 cellules pour rester fluide même très dézoomé.
 - Les patterns sont décrits en ASCII art dans `src/patterns.js`.
+- Le canvas n'est redessiné que quand la scène change (pas à 60 i/s en
+  continu) : le GPU est partagé entre les fenêtres, et une démo au repos
+  ne doit pas faire saccader une vidéo qui tourne à côté.
 
 ## Assets et licences
 
