@@ -3,13 +3,19 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Jeu de la vie</title>
+    <meta
+      name="description"
+      content="Le jeu de la vie de Conway : dessinez des cellules, lancez la simulation et regardez des structures émerger."
+    />
+    <title>Jeu de la vie — automate cellulaire de Conway</title>
   </head>
   <body>
     <header class="topbar">
       <h1>Jeu de la vie</h1>
       <div class="toolbar" role="toolbar" aria-label="Contrôles de la simulation">
-        <button id="play" type="button" aria-pressed="false">Lecture</button>
+        <!-- The label alternates between Lecture and Pause and carries the
+             state on its own, so no aria-pressed here (demo charter). -->
+        <button id="play" type="button">Lecture</button>
         <button id="step-btn" type="button">Pas à pas</button>
         <label class="slider">
           Vitesse
@@ -66,7 +72,11 @@
     </footer>
 
     <dialog id="help">
-      <h2>Le jeu de la vie</h2>
+      <h2>Comment ça marche&nbsp;?</h2>
+      <p class="tagline">
+        Des cellules qui naissent, survivent ou meurent selon trois règles
+        toutes simples — et des structures étonnantes qui en émergent.
+      </p>
       <p>
         Un automate cellulaire imaginé par John Conway en 1970. Chaque case
         de la grille est vivante ou morte, et évolue selon deux règles :
