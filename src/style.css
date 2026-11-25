@@ -124,6 +124,9 @@ button[aria-pressed='true'] {
   min-height: 0;
 }
 
+/* Docked full-height sidebar: no --radius-md on purpose — the charter
+   radius targets floating panels, and rounding a flush, edge-to-edge
+   panel would open gaps against the page edges. */
 .patterns {
   background: var(--color-surface);
   border-right: 1px solid var(--color-border);
